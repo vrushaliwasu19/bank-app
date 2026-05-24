@@ -6,6 +6,21 @@ const path = require('path');
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// ADD THIS LINE
+app.set("trust proxy", 1);
+
+// REPLACE SESSION BLOCK WITH THIS
+app.use(session({
+  secret: 'bank-secret',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    httpOnly: true,
+    secure: true,
+    sameSite: 'none'
+  }
+}));
+
 app.use(session({
   secret: 'bank-secret',
   resave: false,
