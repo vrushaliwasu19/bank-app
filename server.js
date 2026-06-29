@@ -35,7 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 let users = {
   admin: {
     password: 'admin123',
-    balance: 10000,
+    balance: 20000,
     email: 'admin@bank.com'
   }
 };
